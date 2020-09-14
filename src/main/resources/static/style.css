@@ -1,0 +1,74 @@
+.body {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: center;
+    overflow: auto;
+    height: 100%;
+}
+
+.main_content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.App {
+    font-family: sans-serif;
+    text-align: center;
+}
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    align-items: flex-start;
+    padding: 15px;
+}
+
+.formRow {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.form-component {
+    margin: 20px 20px 20px 0;
+}
+
+button {
+    margin: 20px;
+}
+
+.upload,
+.testResult {
+    width: 50%;
+    margin: 30px 0;
+}
+
+textarea:hover,
+input:hover,
+textarea:active,
+input:active,
+textarea:focus,
+input:focus,
+button:focus,
+button:active,
+button:hover,
+label:focus,
+.btn:active,
+.btn.active {
+    outline: 0px !important;
+    -webkit-appearance: none;
+    box-shadow: none !important;
+}
+
+#upload {
+    border-radius: 5px;
+    padding: 10px;
+    background-color: rgb(0, 0, 0, 0.03);
+}

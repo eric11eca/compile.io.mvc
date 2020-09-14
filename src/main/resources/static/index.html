@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="theme-color" content="#000000" />
+    <link rel="stylesheet"  href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="style.css">
+
+    <title>React App</title>
+</head>
+
+<body>
+    <div id="root"></div>
+    <div class="main_content">
+        <div class="card upload">
+            <h5 class="card-header">Upload your code here for testing</h5>
+            <div class="card-body">
+                <div id="userForm"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="main_content" id="testResults"></div>
+
+    <script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <script src="App.js" type="text/babel"></script>
+    <script src="TestTable.js" type="text/babel"></script>
+    <script src="UserForm.js" type="text/babel"></script>
+    <script src="index.js" type="text/babel"></script>
+</body>
+</html>
