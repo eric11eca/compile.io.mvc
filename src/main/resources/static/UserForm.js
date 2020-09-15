@@ -1,26 +1,32 @@
 class UserForm extends React.Component {
     constructor(props) {
         super(props);
+
         this.state = {
             value: "",
             message: "",
-            assignment: "Homework 1",
+            assignment: "Default",
             filename: "",
             fileSize: "",
             fileContent: ""
         };
 
-        this.assignments = {
-            "Homework 1": ["Basic BST", "BST+Iterator"],
-            "Homework 2": ["Single Assignment"],
-            "Homework 3": ["Single Assignment"]
-        };
+        this.assignments = props.assignments;
+        this.assignments["Default"] = [];
 
         this.handleOption = this.handleOption.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleUpload = this.handleUpload.bind(this);
         this.readFile = this.readFile.bind(this);
+        this.composeAssignment = this.composeAssignment.bind(this);
+    }
+
+    composeAssignment() {
+        if (document.getElementById("compounds").value === "") {
+            return document.getElementById("assignments").value;
+        }
+        return document.getElementById("assignments").value+','+document.getElementById("compounds").value
     }
 
     handleOption(event) {
@@ -42,7 +48,7 @@ class UserForm extends React.Component {
             },
             body: JSON.stringify({
                 username: this.state.value,
-                assignment: document.getElementById("assignments").value,
+                assignment: this.composeAssignment(),
                 fileName: this.state.fileName,
                 fileSize: this.state.fileSize,
                 fileContent: this.state.fileContent
@@ -53,30 +59,13 @@ class UserForm extends React.Component {
             }
 
             response.text().then(text => {
-                this.setState({ message: text });
+                alert(text);
+                let testCases = JSON.parse(text);
+                const testTableElement = document.getElementById("testTable");
+                testTableElement.innerHTML = "";
+                ReactDOM.render(<TestTable testCases={testCases} />, testTableElement);
             });
         });
-
-        let testCases = [
-            { id: 1, case: "basicInsertTest", passed: "Yes", error: "" },
-            {
-                id: 2,
-                case: "advancedInsertTest1",
-                passed: "No",
-                error: "Failed at the fifth insertion"
-            },
-            { id: 3, case: "advancedInsertTest2", passed: "Yes", error: "" },
-            {
-                id: 4,
-                case: "basicDeletionTest",
-                passed: "No",
-                error: "Failed at the fifth deletion"
-            },
-            { id: 5, case: "advancedDeletionTest", passed: "Yes", error: "" }
-        ];
-
-        const testTableElement = document.getElementById("testTable");
-        ReactDOM.render(<TestTable testCases={testCases} />, testTableElement);
     }
 
     async handleUpload(event) {

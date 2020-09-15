@@ -1,7 +1,7 @@
 package com.compile.io.application.entity;
 
 
-public class UploadFile extends org.activejpa.entity.Model{
+public class UploadFile {
     private String username;
     private String assignment;
 

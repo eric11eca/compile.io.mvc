@@ -7,7 +7,7 @@ import java.util.Map;
 
 public class TestRecords {
     private String userName;
-    private Map<Date, ArrayList<TestCase>> records;
+    private Map<String, ArrayList<TestCase>> records;
 
     public TestRecords(String userName) {
         this.userName = userName;
@@ -18,7 +18,7 @@ public class TestRecords {
         return userName;
     }
 
-    public Map<Date, ArrayList<TestCase>> getRecords() {
+    public Map<String, ArrayList<TestCase>> getRecords() {
         return records;
     }
 
@@ -26,11 +26,11 @@ public class TestRecords {
         this.userName = userName;
     }
 
-    public void setRecords(Map<Date, ArrayList<TestCase>> records) {
+    public void setRecords(Map<String, ArrayList<TestCase>> records) {
         this.records = records;
     }
 
-    public void insertTestRecord(Date date, ArrayList<TestCase> test) {
+    public void insertTestRecord(String date, ArrayList<TestCase> test) {
         this.records.put(date, test);
     }
 }
